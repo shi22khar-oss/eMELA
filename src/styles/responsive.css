@@ -1,765 +1,181 @@
-@media (max-width: 1200px) {
-  .desktop-nav {
-    gap: 20px;
-  }
-
-  .hero__content {
-    padding-left: 48px;
-  }
-
-  .hero__footer {
-    gap: 18px;
-    padding-inline: 26px;
-  }
-
-  .fairgrounds__layout {
-    grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.8fr);
-  }
-
-  .zone-card {
-    padding: 25px;
-  }
-
-  .zone-card__top {
-    margin-bottom: 22px;
-  }
-
-  .zone-card__facts {
-    margin-bottom: 22px;
-    padding-block: 16px;
-  }
-
-  .experience-card__body {
-    padding: 22px;
-  }
-
-  .event-row {
-    grid-template-columns: 95px minmax(0, 1fr) 60px 124px;
-    gap: 18px;
-  }
-
-  .visit__art {
-    right: -30px;
-  }
+@media (max-width: 1180px) {
+  .desktop-nav { gap: 19px; }
+  .header-cta { display: none; }
+  .hero__ride-marker { right: 12%; }
+  .stall-card__body { padding: 25px; }
+  .stall-activity { grid-template-columns: 1fr; }
+  .jalebi-art { min-height: 245px; }
+  .craft-activity { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 1050px) {
-  .desktop-nav {
-    display: none;
+  .desktop-nav { display: none; }
+  .header-actions { margin-left: auto; }
+  .menu-button { display: grid; }
+  .header-cta { display: inline-flex; }
+  .hero__ride-marker { display: none; }
+  .hero__art img { object-position: 58% center; }
+  .hero__shade {
+    background:
+      linear-gradient(90deg, rgba(18, 10, 34, 0.94) 0%, rgba(25, 12, 36, 0.64) 58%, rgba(25, 12, 36, 0.18) 100%),
+      linear-gradient(0deg, rgba(18, 10, 34, 0.85) 0%, transparent 48%);
   }
-
-  .menu-button {
-    display: grid;
-  }
-
-  .header-actions {
-    margin-left: auto;
-  }
-
-  .hero {
-    min-height: 710px;
-  }
-
-  .hero__content {
-    max-width: 760px;
-    padding-top: 64px;
-  }
-
-  .hero h1 {
-    font-size: clamp(4rem, 8vw, 5.8rem);
-  }
-
-  .hero__seal {
-    width: 108px;
-    height: 108px;
-  }
-
-  .hero__footer {
-    grid-template-columns: 0.8fr 1.35fr 1fr auto;
-  }
-
-  .fairgrounds__layout {
-    grid-template-columns: 1fr;
-  }
-
-  .map-board {
-    min-height: 610px;
-  }
-
-  .zone-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 40px;
-  }
-
-  .zone-card__top {
-    grid-column: 1 / -1;
-    margin-bottom: 24px;
-  }
-
-  .zone-card > .eyebrow,
-  .zone-card h3,
-  .zone-card__description {
-    grid-column: 1;
-  }
-
-  .zone-card__facts {
-    grid-row: 2 / 5;
-    grid-column: 2;
-    align-self: start;
-    justify-content: center;
-    margin-top: 0;
-    padding-left: 10px;
-    border-block: 0;
-    border-left: 1px solid rgba(53, 23, 39, 0.14);
-  }
-
-  .zone-card > .button {
-    grid-column: 1;
-    margin-top: 0;
-  }
-
-  .zone-card__next {
-    grid-row: 5;
-    grid-column: 2;
-    align-self: end;
-    justify-self: center;
-  }
-
-  .experience-grid {
-    gap: 18px;
-  }
-
-  .experience-card__body > p {
-    min-height: 100px;
-  }
-
-  .event-row {
-    grid-template-columns: 90px minmax(0, 1fr) 120px;
-  }
-
-  .event-row__duration {
-    display: none;
-  }
-
-  .visit {
-    padding: 52px;
-  }
-
-  .visit__arrow {
-    display: none;
-  }
-
-  .visit__art {
-    width: 300px;
-  }
+  .fair-scene { min-height: 590px; aspect-ratio: auto; }
+  .fair-scene__wheel { top: 8%; right: 0; width: 40%; }
+  .fair-stop__label strong { font-size: 0.67rem; }
+  .fair-stop__label small { font-size: 0.57rem; }
+  .stalls__grid { grid-template-columns: 1fr; }
+  .stall-card { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); }
+  .stall-card__image { height: 100%; min-height: 580px; border-right: 1.5px solid var(--ink); border-bottom: 0; }
+  .stall-activity { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+  .craft-activity { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 820px) {
-  .shell {
-    width: calc(100% - 40px);
-  }
-
-  .section {
-    padding-block: 82px;
-  }
-
-  .section-heading--split,
-  .lineup__heading {
-    display: block;
-  }
-
-  .section-heading--split > p,
-  .lineup__heading > p {
-    max-width: 540px;
-    margin-top: 22px;
-  }
-
-  .hero {
-    width: calc(100% - 24px);
-    min-height: 730px;
-    margin-top: 12px;
-    border-radius: 22px;
-  }
-
-  .hero__art img {
-    object-position: 61% center;
-  }
-
-  .hero__shade {
-    background:
-      linear-gradient(90deg, rgba(26, 10, 28, 0.9) 0%, rgba(30, 12, 31, 0.58) 65%, rgba(30, 12, 31, 0.2) 100%),
-      linear-gradient(0deg, rgba(22, 8, 24, 0.83) 0%, transparent 48%);
-  }
-
-  .hero__content {
-    padding: 58px 36px 205px;
-  }
-
-  .hero__seal {
-    top: 28px;
-    right: 28px;
-    width: 94px;
-    height: 94px;
-  }
-
-  .hero__seal span {
-    font-size: 0.52rem;
-  }
-
-  .hero__footer {
-    grid-template-columns: 1fr 1.3fr auto;
-    padding: 20px 24px;
-  }
-
-  .hero__footer > div:nth-child(2) {
-    display: none;
-  }
-
-  .intro__bottom {
-    gap: 45px;
-  }
-
-  .intro__doodle {
-    display: none;
-  }
-
-  .map-board {
-    min-height: 540px;
-  }
-
-  .zone-card {
-    column-gap: 28px;
-  }
-
-  .experience-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .experience-card {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  }
-
-  .experience-card__image {
-    height: 100%;
-    min-height: 350px;
-    aspect-ratio: auto;
-    border-right: 1.5px solid var(--plum);
-    border-bottom: 0;
-  }
-
-  .experience-card__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-  }
-
-  .experience-card__body > p {
-    min-height: 0;
-  }
-
-  .experience-card__footer {
-    margin-top: auto;
-  }
-
-  .lineup__filters {
-    margin-top: 32px;
-  }
-
-  .visit {
-    margin-block: 82px;
-    padding: 44px;
-  }
-
-  .visit__art {
-    right: -60px;
-    width: 280px;
-  }
-
-  .site-footer__main {
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 45px;
-  }
-
-  .social-button {
-    display: none;
-  }
+  .shell { width: calc(100% - 40px); }
+  .section { padding-block: 82px; }
+  .section-heading--split { display: block; }
+  .section-heading > p { max-width: 540px; margin-top: 22px; }
+  .hero { min-height: max(690px, calc(100svh - 78px)); }
+  .hero__content { padding-top: 120px; }
+  .hero h1 { font-size: clamp(4.8rem, 13vw, 7rem); }
+  .hero__art img { object-position: 64% center; }
+  .fair-scene { height: 580px; min-height: 0; }
+  .fair-scene__wheel { top: 9%; right: -4%; width: 49%; }
+  .fair-stop { padding: 5px; border-radius: 16px; }
+  .fair-stop__icon { width: 39px; height: 39px; }
+  .fair-stop__label { max-width: 70px; white-space: normal; }
+  .fair-stop__label small { display: none; }
+  .fair-stop--stage { left: 42% !important; }
+  .fair-scene__hint { display: none; }
+  .arcade__topbar { align-items: flex-start; flex-direction: column; }
+  .game-tabs { width: 100%; }
+  .game-tabs button { flex: 1; justify-content: center; }
+  .stall-card { display: block; }
+  .stall-card__image { height: 320px; min-height: 0; border-right: 0; border-bottom: 1.5px solid var(--ink); }
+  .stall-activity, .craft-activity { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+  .diya-preview { min-height: 315px; }
+  .ride-experience { grid-template-columns: 0.85fr 1.15fr; }
+  .ride-experience__visual { padding-inline: 15px; }
+  .ride-experience__content { padding: 45px 28px; }
+  .site-footer__main { grid-template-columns: 0.8fr 1.2fr; gap: 35px; }
+  .social-button { display: none; }
 }
 
-@media (max-width: 600px) {
-  html {
-    scroll-padding-top: 82px;
-  }
-
-  .shell {
-    width: calc(100% - 28px);
-  }
-
-  .section {
-    padding-block: 66px;
-  }
-
-  .announcement {
-    min-height: 30px;
-    justify-content: center;
-    padding-inline: 14px;
-    font-size: 0.56rem;
-    text-align: center;
-  }
-
-  .announcement__right {
-    display: none;
-  }
-
-  .site-header__inner {
-    min-height: 68px;
-  }
-
-  .brand__mark {
-    width: 34px;
-    height: 34px;
-    margin-right: 7px;
-  }
-
-  .brand__word {
-    font-size: 1.55rem;
-  }
-
-  .header-pass,
-  .header-actions > .plan-button {
-    display: none;
-  }
-
-  .mobile-nav {
-    padding: 14px 20px 24px;
-  }
-
-  .hero {
-    min-height: max(670px, calc(100svh - 116px));
-    max-height: 810px;
-    border-radius: 20px;
-  }
-
-  .hero__art img {
-    object-position: 66% center;
-  }
-
+@media (max-width: 640px) {
+  html { scroll-padding-top: 76px; }
+  .shell { width: calc(100% - 28px); }
+  .section { padding-block: 66px; }
+  .section-heading { margin-bottom: 31px; }
+  .section-heading h2, .stage-section h2 { font-size: clamp(2.65rem, 12vw, 3.8rem); }
+  .section-heading > p { margin-top: 18px; font-size: 0.9rem; }
+  .site-header__inner { min-height: 70px; gap: 12px; }
+  .brand__mark { width: 33px; height: 33px; margin-right: 6px; }
+  .brand__word { font-size: 1.5rem; }
+  .brand__dot { font-size: 1.55rem; }
+  .header-cta { display: none; }
+  .header-actions { gap: 4px; }
+  .sound-toggle { width: 44px; justify-content: center; padding: 0; }
+  .sound-toggle span { display: none; }
+  .hero { min-height: max(680px, calc(100svh - 70px)); max-height: 850px; }
+  .hero__art img { object-position: 68% center; }
   .hero__shade {
     background:
-      linear-gradient(90deg, rgba(26, 10, 28, 0.84) 0%, rgba(30, 12, 31, 0.45) 100%),
-      linear-gradient(0deg, rgba(22, 8, 24, 0.92) 0%, rgba(22, 8, 24, 0.25) 65%, rgba(22, 8, 24, 0.28) 100%);
-  }
-
-  .hero__content {
-    padding: 43px 22px 160px;
-  }
-
-  .hero__content .eyebrow {
-    max-width: 270px;
-    margin-bottom: 21px;
-    font-size: 0.59rem;
-  }
-
-  .hero h1 {
-    margin-bottom: 22px;
-    font-size: clamp(3.1rem, 14.5vw, 4.25rem);
-    line-height: 0.96;
-  }
-
-  .hero__intro {
-    max-width: 420px;
-    margin-bottom: 26px;
-    font-size: 0.93rem;
-    line-height: 1.6;
-  }
-
-  .hero__actions {
-    max-width: 340px;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero__actions .button {
-    width: 100%;
-    min-height: 50px;
-    padding-block: 13px;
-    font-size: 0.86rem;
-  }
-
-  .hero__seal {
-    display: none;
-  }
-
-  .hero__footer {
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    padding: 15px 20px;
-  }
-
-  .hero__footer > div {
-    padding: 0;
-    border: 0;
-  }
-
-  .hero__footer > div:nth-child(3) {
-    display: none;
-  }
-
-  .hero__footer button {
-    font-size: 0;
-  }
-
-  .hero__footer button svg {
-    width: 25px;
-    height: 25px;
-  }
-
-  .ticker {
-    margin-top: 14px;
-  }
-
-  .ticker__group > span {
-    height: 56px;
-    gap: 24px;
-    padding-left: 24px;
-    font-size: 0.93rem;
-  }
-
-  .intro h2 {
-    margin-bottom: 32px;
-    font-size: clamp(2.4rem, 11.5vw, 3.25rem);
-  }
-
-  .intro__bottom {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .intro__bottom > p {
-    font-size: 0.96rem;
-  }
-
-  .intro__promises {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 13px 10px;
-  }
-
-  .intro__promises span {
-    font-size: 0.78rem;
-  }
-
-  .eyebrow {
-    margin-bottom: 16px;
-    font-size: 0.64rem;
-  }
-
-  .section-heading h2,
-  .lineup__heading h2,
-  .visit h2 {
-    font-size: clamp(2.35rem, 11vw, 3.2rem);
-  }
-
-  .section-heading--split > p,
-  .lineup__heading > p {
-    margin-top: 18px;
-    font-size: 0.9rem;
-  }
-
-  .fairgrounds__layout,
-  .experience-grid {
-    margin-top: 32px;
-  }
-
-  .map-board {
-    min-height: 470px;
-    border-radius: 22px;
-  }
-
-  .map-board__hint {
-    display: none;
-  }
-
-  .map-board__compass {
-    top: 18px;
-    right: 18px;
-  }
-
-  .map-marker {
-    gap: 6px;
-  }
-
-  .map-marker__icon {
-    width: 45px;
-    height: 45px;
-    box-shadow: 0 4px 0 rgba(53, 23, 39, 0.42);
-  }
-
-  .map-marker__icon svg {
-    width: 21px;
-    height: 21px;
-  }
-
-  .map-marker__label {
-    padding: 5px 7px;
-    font-size: 0.55rem;
-  }
-
-  .map-marker.is-active .map-marker__icon {
-    box-shadow: 0 0 0 5px rgba(255, 201, 79, 0.22), 0 4px 0 rgba(53, 23, 39, 0.42);
-  }
-
-  .map-entrance {
-    bottom: 14px;
-    font-size: 0.46rem;
-  }
-
-  .zone-card {
-    display: flex;
-    padding: 25px;
-    border-radius: 22px;
-  }
-
-  .zone-card__top {
-    margin-bottom: 23px;
-  }
-
-  .zone-card__icon {
-    width: 54px;
-    height: 54px;
-  }
-
-  .zone-card h3 {
-    font-size: 2.2rem;
-  }
-
-  .zone-card__description {
-    font-size: 0.88rem;
-  }
-
-  .zone-card__facts {
-    align-self: stretch;
-    margin-top: 0;
-    padding: 18px 0;
-    border-block: 1px solid rgba(53, 23, 39, 0.14);
-    border-left: 0;
-  }
-
-  .zone-card__next {
-    align-self: center;
-  }
-
-  .experience-card {
-    display: block;
-    border-radius: 20px;
-  }
-
-  .experience-card__image {
-    min-height: 0;
-    aspect-ratio: 4 / 3.75;
-    border-right: 0;
-    border-bottom: 1.5px solid var(--plum);
-  }
-
-  .experience-card__body {
-    display: block;
-    padding: 24px;
-  }
-
-  .experience-card h3 {
-    font-size: 2rem;
-  }
-
-  .experience-card__footer {
-    margin-top: 0;
-  }
-
-  .lineup__filters {
-    flex-wrap: nowrap;
-    margin-right: -14px;
-    padding-right: 14px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .lineup__filters::-webkit-scrollbar {
-    display: none;
-  }
-
-  .lineup__filters button {
-    flex: 0 0 auto;
-  }
-
-  .event-row {
-    grid-template-columns: 66px minmax(0, 1fr) 44px;
-    gap: 12px;
-    padding-block: 22px;
-  }
-
-  .event-row > time {
-    align-self: start;
-    padding-top: 3px;
-    font-size: 0.77rem;
-  }
-
-  .event-row__title {
-    display: block;
-  }
-
-  .event-row h3 {
-    font-size: 1.24rem;
-    line-height: 1.15;
-  }
-
-  .event-row__title > span {
-    display: inline-block;
-    margin-top: 8px;
-  }
-
-  .event-row__details > p {
-    margin-top: 9px;
-    font-size: 0.73rem;
-  }
-
-  .event-row__add {
-    width: 42px;
-    height: 42px;
-    min-height: 42px;
-    padding: 0;
-    border-radius: 50%;
-  }
-
-  .event-row__add span {
-    display: none;
-  }
-
-  .visit {
-    margin-block: 66px;
-    padding: 34px 24px;
-    border-radius: 22px;
-  }
-
-  .visit__art {
-    top: -10px;
-    right: -80px;
-    width: 240px;
-  }
-
-  .visit__content > p:not(.eyebrow) {
-    font-size: 0.9rem;
-  }
-
-  .visit__actions {
-    flex-direction: column;
-  }
-
-  .visit__actions .button {
-    width: 100%;
-    font-size: 0.85rem;
-  }
-
-  .site-footer__main {
-    grid-template-columns: 1fr;
-    gap: 42px;
-    padding-block: 55px 42px;
-  }
-
-  .site-footer__links {
-    gap: 25px;
-  }
-
-  .site-footer__bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 13px;
-  }
-
-  .site-footer__wish {
-    display: none;
-  }
-
-  .modal {
-    padding: 10px;
-  }
-
-  .modal__panel {
-    max-height: calc(100dvh - 20px);
-    padding: 34px 22px 26px;
-    border-radius: 22px;
-  }
-
-  .modal--drawer {
-    padding: 0;
-  }
-
-  .modal--drawer .modal__panel {
-    padding: 36px 22px 24px;
-    border-radius: 0;
-  }
-
-  .pass-form h2,
-  .planner__header h2 {
-    font-size: 2.15rem;
-  }
-
-  .pass-success__heading {
-    gap: 12px;
-  }
-
-  .pass-success__heading h2 {
-    font-size: 1.65rem;
-  }
-
-  .digital-pass {
-    padding: 21px;
-  }
-
-  .digital-pass > h3 {
-    font-size: 2rem;
-  }
-
-  .digital-pass__details {
-    gap: 30px;
-  }
-
-  .planner__list li {
-    grid-template-columns: 23px minmax(0, 1fr) 34px;
-    gap: 10px;
-  }
-
-  .planner__item-icon {
-    display: none;
-  }
-
-  .toast {
-    bottom: 16px;
-    width: max-content;
-    justify-content: center;
-    font-size: 0.72rem;
-  }
+      linear-gradient(90deg, rgba(18, 10, 34, 0.88) 0%, rgba(25, 12, 36, 0.42) 100%),
+      linear-gradient(0deg, rgba(18, 10, 34, 0.94) 0%, rgba(18, 10, 34, 0.2) 68%, rgba(18, 10, 34, 0.3) 100%);
+  }
+  .hero__content { padding-top: 105px; }
+  .hero__content .eyebrow { max-width: 280px; font-size: 0.59rem; }
+  .hero h1 { margin-bottom: 24px; font-size: clamp(4rem, 19vw, 5.4rem); line-height: 0.89; }
+  .hero__intro { max-width: 370px; font-size: 0.92rem; line-height: 1.62; }
+  .hero__actions { max-width: 350px; flex-direction: column; gap: 10px; }
+  .hero__actions .button { width: 100%; min-height: 50px; font-size: 0.84rem; }
+  .hero__bottom { bottom: 18px; font-size: 0.67rem; }
+  .hero__bottom button { width: 42px; height: 42px; }
+  .hero__lights { right: 4%; left: 4%; }
+  .hero__lights > span:nth-child(n+15) { display: none; }
+  .joy-strip > div > span > span { height: 51px; font-size: 0.88rem; }
+  .fair-scene { height: 565px; border-radius: 21px; }
+  .fair-scene__wheel { top: 12%; right: -9%; width: 64%; }
+  .fair-scene__lights { top: 10%; }
+  .fair-scene__lights > span:nth-child(n+13) { display: none; }
+  .fair-stop { flex-direction: column; gap: 3px; max-width: 76px; padding: 5px 6px; border-radius: 14px; }
+  .fair-stop__icon { width: 36px; height: 36px; }
+  .fair-stop__icon svg { width: 18px; }
+  .fair-stop__label { max-width: 66px; }
+  .fair-stop__label strong { font-size: 0.55rem; line-height: 1.15; text-align: center; }
+  .fair-stop--wheel { top: 25% !important; left: 77% !important; }
+  .fair-stop--stage { top: 39% !important; left: 43% !important; }
+  .fair-stop--games { left: 18% !important; }
+  .fair-stop--food { top: 71% !important; left: 37% !important; }
+  .fair-stop--craft { top: 76% !important; left: 70% !important; }
+  .fair-scene__fireworks-button { right: 12px; bottom: 12px; min-height: 40px; padding: 10px 13px; font-size: 0.67rem; }
+  .arcade { border-radius: 21px; box-shadow: 5px 6px 0 var(--ink); }
+  .arcade__topbar { gap: 14px; padding: 18px 15px; }
+  .arcade__brand { font-size: 0.62rem; }
+  .game-tabs button { padding-inline: 10px; font-size: 0.7rem; }
+  .arcade__panel { padding: 13px; }
+  .balloon-game__board, .ring-game__board { min-height: 390px; border-radius: 15px; }
+  .balloon-grid { min-height: 390px; padding: 15px 8px; }
+  .balloon { height: 109px; }
+  .balloon__shape { width: 57px; height: 70px; }
+  .balloon__shape::after { left: 22px; }
+  .balloon__string { top: 84px; }
+  .game-overlay { padding: 22px; }
+  .game-overlay h3 { font-size: 1.9rem; }
+  .bottle-grid { min-height: 390px; padding: 28px 18px; }
+  .bottle__body { width: 49px; }
+  .mini-game__hint { padding-inline: 8px; line-height: 1.5; }
+  .stall-card { border-radius: 21px; }
+  .stall-card__image { height: 260px; }
+  .stall-card__body { padding: 24px 19px; }
+  .stall-card__body h3 { font-size: 2.25rem; }
+  .stall-activity, .craft-activity { grid-template-columns: 1fr; }
+  .jalebi-art { min-height: 250px; }
+  .diya-preview { min-height: 235px; }
+  .jalebi-controls, .craft-controls { padding: 21px; }
+  .choice-buttons button { min-height: 39px; padding-inline: 13px; }
+  .colour-swatches button { width: 41px; height: 41px; }
+  .stage-section { min-height: 590px; }
+  .stage-section__content { padding-block: 110px 60px; }
+  .stage-section__content > p:not(.eyebrow) { font-size: 0.87rem; }
+  .stage-equalizer { gap: 5px; }
+  .stage-equalizer span { width: 6px; }
+  .modal { padding: 10px; }
+  .modal__panel { border-radius: 21px; }
+  .ride-experience { grid-template-columns: 1fr; }
+  .ride-experience__visual { min-height: 265px; padding: 10px 30px 0; }
+  .ride-experience__visual .ferris-wheel { width: 220px; }
+  .ride-experience__content { padding: 30px 24px; }
+  .ride-experience__content h2 { font-size: 2.55rem; }
+  .ride-experience__content .button { align-self: stretch; }
+  .site-footer__main { grid-template-columns: 1fr; gap: 30px; padding-block: 45px; }
+  .site-footer__links { gap: 14px; }
+  .site-footer__bottom { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .site-footer__bottom > span:nth-child(2) { display: none; }
+  .toast { width: max-content; border-radius: 16px; font-size: 0.72rem; text-align: left; }
 }
 
-@media (max-width: 370px) {
-  .hero h1 {
-    font-size: 2.9rem;
-  }
+@media (max-width: 380px) {
+  .hero h1 { font-size: 3.75rem; }
+  .hero__content { padding-top: 94px; }
+  .hero__intro { font-size: 0.86rem; }
+  .fair-stop--food { left: 34% !important; }
+  .fair-stop--craft { left: 72% !important; }
+  .game-tabs button svg { display: none; }
+  .balloon__shape { width: 51px; height: 64px; }
+  .balloon__shape::after { left: 19px; }
+  .balloon__string { top: 78px; }
+}
 
-  .hero__content {
-    padding-inline: 18px;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-
-  .hero__intro {
-    font-size: 0.86rem;
-  }
-
-  .map-marker__label {
-    font-size: 0.49rem;
-  }
-
-  .intro__promises {
-    grid-template-columns: 1fr;
-  }
+  .ferris-wheel__rotor { animation: none !important; }
+  .joy-strip > div { transform: translateX(0); }
 }
