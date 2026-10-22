@@ -1,0 +1,21 @@
+{
+  "name": "eMELA — Find your kind of fun",
+  "short_name": "eMELA",
+  "description": "A joyful digital fair filled with rides, flavours, crafts, music, and wonder.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fbf5e8",
+  "theme_color": "#351727",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
