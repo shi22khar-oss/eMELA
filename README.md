@@ -92,17 +92,11 @@ Attractions, experiences, and stage events live in **`src/data.ts`**. Shared Typ
 
 ## Deployment
 
-The repository includes **`.github/workflows/deploy.yml`**. After the workflow reaches the default branch:
+**[Open the published eMELA website →](https://shi22khar-oss.github.io/eMELA/)**
 
-1. Open **GitHub → repository Settings → Pages**.
-2. Under **Build and deployment**, choose **GitHub Actions** as the source.
-3. Push to `main` or run the **Deploy website** workflow manually.
+GitHub Pages is enabled with **GitHub Actions** as its publishing source. Every push to `main` runs **`.github/workflows/deploy.yml`**, which validates the application and publishes the optimized `dist/` build.
 
-The live website will be available at:
-
-**https://shi22khar-oss.github.io/eMELA/**
-
-Pull requests and default-branch pushes also run the automated quality workflow in **`.github/workflows/ci.yml`**.
+To deploy manually, open **Actions → Deploy website → Run workflow** and select the `main` branch. Pull requests and default-branch pushes also run the automated quality workflow in **`.github/workflows/ci.yml`**.
 
 ## Privacy and data
 
