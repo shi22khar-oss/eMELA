@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "A joyful, immersive digital mela built with React and TypeScript.",
+  "description": "An interactive digital mela with rides, games, creative stalls, and music.",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",

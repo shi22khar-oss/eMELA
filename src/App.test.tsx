@@ -1,68 +1,91 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import App from './App';
 
-describe('eMELA experience', () => {
-  beforeEach(() => {
-    window.localStorage.clear();
+vi.mock('./utils/soundscape', () => ({
+  FairSoundscape: class {
+    start() { return Promise.resolve(); }
+    stop() { return undefined; }
+  },
+}));
+
+describe('eMELA interactive fair', () => {
+  it('opens with experiences instead of planner and pass controls', () => {
+    render(<App />);
+
+    expect(screen.getByRole('heading', { name: 'Step into the mela.' })).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Enter the fairground' })).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Start popping' })).toBeVisible();
+    expect(screen.queryByRole('button', { name: /plan|pass/i })).not.toBeInTheDocument();
   });
 
-  it('adds a fairground zone to the plan and removes it from the planner', async () => {
+  it('starts the wheel ride and closes the accessibly labelled dialog with Escape', async () => {
     const user = userEvent.setup();
     render(<App />);
 
-    await user.click(screen.getByRole('button', { name: 'Explore The Food Street' }));
-    expect(screen.getByRole('heading', { name: 'The Food Street', level: 3 })).toBeVisible();
+    await user.click(screen.getByRole('button', { name: 'Sky-High Wheel Take a ride' }));
+    expect(screen.getByRole('dialog', { name: 'A little closer to the stars.' })).toBeVisible();
+    await user.click(screen.getByRole('button', { name: 'Start my ride' }));
+    expect(screen.getByText(/Settle into your gondola/)).toBeVisible();
 
-    await user.click(screen.getByRole('button', { name: 'Add to my mela' }));
-    expect(screen.getByRole('button', { name: 'Added to my mela' })).toBeVisible();
-
-    await user.click(screen.getByRole('button', { name: 'Open my mela plan, 1 items' }));
-    const planner = screen.getByRole('dialog', { name: 'My mela plan' });
-    expect(within(planner).getByRole('heading', { name: 'The Food Street' })).toBeVisible();
-
-    await user.click(within(planner).getByRole('button', { name: 'Remove The Food Street from my plan' }));
-    expect(within(planner).getByText('Your next favourite thing is out there.')).toBeVisible();
-  });
-
-  it('filters the stage line-up and saves a performance', async () => {
-    const user = userEvent.setup();
-    render(<App />);
-
-    await user.click(screen.getByRole('button', { name: 'Dance' }));
-    expect(screen.getByRole('heading', { name: 'Ghungroo & Groove' })).toBeVisible();
-    expect(screen.queryByRole('heading', { name: 'Dhol at the Door' })).not.toBeInTheDocument();
-
-    await user.click(screen.getByRole('button', { name: 'Add Ghungroo & Groove to my plan' }));
-    await user.click(screen.getByRole('button', { name: 'Open my mela plan, 1 items' }));
-    expect(screen.getByRole('dialog', { name: 'My mela plan' })).toHaveTextContent('7:00 PM · 35 min · Centre Stage');
-  });
-
-  it('creates a personalized pass without requiring an email address', async () => {
-    const user = userEvent.setup();
-    render(<App />);
-
-    await user.click(screen.getByRole('button', { name: 'Get free pass' }));
-    const dialog = screen.getByRole('dialog', { name: 'Your free pass to a happier place.' });
-    await user.type(within(dialog).getByLabelText('What should we call you?'), 'Asha and friends');
-    await user.selectOptions(within(dialog).getByLabelText('Who are you bringing along?'), '3');
-    await user.click(within(dialog).getByRole('button', { name: 'Create my free pass' }));
-
-    expect(screen.getByRole('heading', { name: 'Let the good times begin.' })).toBeVisible();
-    expect(screen.getByRole('heading', { name: 'Asha and friends' })).toBeVisible();
-    expect(screen.getByText('3 people')).toBeVisible();
-    expect(screen.getByText(/EM-[A-Z0-9]{7}/)).toBeVisible();
-    expect(screen.queryByLabelText(/email/i)).not.toBeInTheDocument();
-  });
-
-  it('closes dialogs with the Escape key', async () => {
-    const user = userEvent.setup();
-    render(<App />);
-
-    await user.click(screen.getByRole('button', { name: 'Get free pass' }));
-    expect(screen.getByRole('dialog')).toBeVisible();
     await user.keyboard('{Escape}');
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
+  it('plays balloon pop and increments the score', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByRole('button', { name: 'Start popping' }));
+    await user.click(screen.getByRole('button', { name: 'Pop coral balloon 1' }));
+    expect(screen.getByLabelText('Balloon score')).toHaveTextContent('1');
+    expect(screen.getByRole('button', { name: 'Pop coral balloon 1' })).toBeDisabled();
+  });
+
+  it('throws a ring and uses one of the available rings', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    screen.getByRole('tab', { name: 'Balloon pop' }).focus();
+    await user.keyboard('{ArrowRight}');
+    expect(screen.getByRole('tab', { name: 'Ring toss' })).toHaveAttribute('aria-selected', 'true');
+    await user.click(screen.getByRole('button', { name: 'Pick up the rings' }));
+    await user.click(screen.getByRole('button', { name: 'Throw a ring at bottle 9, worth 1 point' }));
+    await waitFor(() => expect(screen.getByLabelText('Rings remaining')).toHaveTextContent('5'));
+  });
+
+  it('fries a fresh pistachio jalebi batch', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByRole('button', { name: 'Pistachio' }));
+    await user.click(screen.getByRole('button', { name: 'Fry fresh jalebis' }));
+    expect(screen.getByRole('button', { name: 'Frying your jalebis…' })).toBeDisabled();
+    expect(await screen.findByText('Fresh pistachio jalebis are ready!', {}, { timeout: 3500 })).toBeVisible();
+  });
+
+  it('paints, patterns, and lights a diya', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByRole('button', { name: 'Paint diya Neem green' }));
+    await user.click(screen.getByRole('button', { name: 'stars' }));
+    await user.click(screen.getByRole('button', { name: 'Light my diya' }));
+    expect(screen.getByText('Your neem green diya with stars is glowing!')).toBeVisible();
+  });
+
+  it('only enables the soundscape after a visitor asks for it', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const soundOff = screen.getByRole('button', { name: /Turn fair sound on/i });
+    expect(soundOff).toHaveAttribute('aria-pressed', 'false');
+    await user.click(soundOff);
+    const soundOn = await screen.findByRole('button', { name: /Turn fair sound off/i });
+    expect(soundOn).toHaveAttribute('aria-pressed', 'true');
+
+    await user.click(soundOn);
+    expect(await screen.findByRole('button', { name: /Turn fair sound on/i })).toHaveAttribute('aria-pressed', 'false');
   });
 });

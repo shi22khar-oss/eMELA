@@ -2,28 +2,30 @@
 
 ## [Visit the live website → https://shi22khar-oss.github.io/eMELA/](https://shi22khar-oss.github.io/eMELA/)
 
-**A little colour. A little chaos. A whole lot of happy.**
+**Don’t just browse the fair. Step inside and play.**
 
-eMELA is an immersive, mobile-first digital fair experience. Explore illustrated fairgrounds, discover food and craft, browse the stage line-up, build a personal itinerary, and create a downloadable digital pass—all from one fast, accessible website.
+eMELA is an immersive, mobile-first digital mela built around things visitors can actually do: ride above the lights, play fairground games, fry a virtual treat, paint a diya, launch fireworks, and switch on an optional musical soundscape.
 
 ---
 
 ## Experience highlights
 
-- **Interactive fair map** with five explorable zones and useful details for each stop.
-- **Personal mela planner** for saving attractions and performances, with a downloadable itinerary.
-- **Personalized digital passes** generated and downloaded locally as SVG artwork.
-- **Filterable stage line-up** for music, dance, and family events.
-- **Responsive original artwork** served as appropriately sized WebP images.
-- **Thoughtful motion** with full `prefers-reduced-motion` support.
-- **Local-first privacy** with no accounts, tracking, backend, or personal data transmission.
+- **Animated interactive fairground** with clickable attractions, a rotating Ferris wheel, glowing stalls, and fireworks.
+- **Sky-High Wheel ride** with an animated gondola journey and changing views.
+- **Two playable games**—a 30-second balloon-pop challenge and six-ring ring toss with scoring and replay states.
+- **Interactive jalebi counter** for choosing a finish and frying a fresh virtual batch.
+- **Paint-your-own diya studio** with colours, patterns, and a lightable flame.
+- **Optional Centre Stage soundscape** generated locally with the Web Audio API; never autoplays.
+- **Responsive and accessible** with touch-sized controls, keyboard support, accessible dialogs, visible focus, and reduced-motion fallbacks.
+- **Private by default** with no accounts, tracking, backend, or personal data collection.
 
 ## Technology
 
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vite.dev/) for development and optimized production builds
 - Variable, self-hosted DM Sans and Bricolage Grotesque fonts
-- Lucide icons and hand-built responsive CSS
+- SVG artwork, hand-built responsive CSS, and Lucide icons
+- Web Audio API for the optional original soundscape
 - Vitest + Testing Library for interaction tests
 - ESLint for static analysis
 - GitHub Actions for CI and GitHub Pages deployment
@@ -62,10 +64,10 @@ npm run check
 This runs, in order:
 
 1. `npm run lint` — TypeScript-aware ESLint checks
-2. `npm run test` — interaction and download-generation tests
+2. `npm run test` — ride, game, stall, and audio interaction tests
 3. `npm run build` — strict TypeScript and production build validation
 
-The interface is also designed for keyboard navigation, visible focus, semantic landmarks, accessible dialogs, reduced motion, and layouts from 320px phones to wide desktops.
+The interface is designed for keyboard navigation, semantic landmarks, accessible dialogs, reduced motion, and layouts from 320px phones to wide desktops.
 
 ## Project structure
 
@@ -74,13 +76,13 @@ The interface is also designed for keyboard navigation, visible focus, semantic 
 ├── .github/workflows/    # CI and GitHub Pages automation
 ├── public/               # Optimized artwork, icons, manifest, robots.txt
 ├── src/
-│   ├── components/       # Focused UI and feature components
-│   ├── hooks/            # Resilient local-storage state
+│   ├── components/       # Fairground, ride, games, stalls, stage, and UI
+│   ├── hooks/            # Optional fair-audio lifecycle
 │   ├── styles/           # Responsive design rules
 │   ├── test/             # Shared test setup
-│   ├── utils/            # Safe client-side download helpers
-│   ├── App.tsx           # Page composition and shared experience state
-│   ├── data.ts           # Editable fair content
+│   ├── utils/            # Browser-generated soundscape
+│   ├── App.tsx           # Experience composition and navigation
+│   ├── data.ts           # Fairground stops and asset helpers
 │   └── types.ts          # Shared domain types
 ├── index.html            # Metadata and application entry
 └── vite.config.ts        # Build, preview, and test configuration
@@ -88,7 +90,7 @@ The interface is also designed for keyboard navigation, visible focus, semantic 
 
 ## Update the fair content
 
-Attractions, experiences, and stage events live in **`src/data.ts`**. Shared TypeScript types in `src/types.ts` keep content consistent. The UI derives its filters, map markers, planner entries, and counts from this data rather than duplicating content across components.
+Fairground stops live in **`src/data.ts`**. Each attraction has its own focused component in **`src/components/`**, making game rules, stall interactions, visual treatments, and motion independently maintainable.
 
 ## Deployment
 
@@ -100,7 +102,7 @@ To deploy manually, open **Actions → Deploy website → Run workflow** and sel
 
 ## Privacy and data
 
-eMELA has no server-side data collection. A visitor's plan and pass are stored only in their browser using `localStorage`; clearing browser storage removes them. Downloads are generated entirely on the device. If storage is unavailable, the core experience still works for the current session.
+eMELA has no server-side data collection. Game and stall state exists only for the current page visit. Audio is generated on the device and starts only after an explicit visitor action. There are no accounts, forms, cookies, analytics, or stored personal details.
 
 ---
 
